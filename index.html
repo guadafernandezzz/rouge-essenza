@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ROUGE — catálogo de skincare y belleza.">
+  <title>ROUGE — Skin Care</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%238f2031%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-size=%2730%27 font-family=%27Georgia,serif%27 fill=%27white%27%3ER%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <span>Envíos sin cargo en Avellaneda y zonas cercanas</span>
+    <div class="topbar-contact">
+      <a href="https://www.instagram.com/rouge.essenza/" target="_blank" rel="noopener noreferrer">Instagram · @rouge.essenza</a>
+      <a href="https://wa.me/5491130049720" target="_blank" rel="noopener noreferrer">WhatsApp · +54 9 11 3004-9720</a>
+    </div>
+  </div>
+
+  <header class="hero">
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a class="nav-logo" href="#" aria-label="ROUGE, inicio">ROUGE</a>
+      <div class="nav-links">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#como-comprar">Cómo comprar</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <a class="nav-cta" href="https://wa.me/5491130049720" target="_blank" rel="noopener noreferrer">Hacer una consulta <span>↗</span></a>
+    </nav>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Curaduría de skincare coreano</p>
+        <h1>Tu piel merece<br><em>algo extraordinario.</em></h1>
+        <p class="hero-text">Encontrá los productos que acompañan tu rutina, seleccionados para que el cuidado diario se sienta como un ritual.</p>
+        <div class="hero-actions">
+          <a class="hero-primary" href="#catalogo">Explorar catálogo <span>↓</span></a>
+          <a class="hero-secondary" href="#como-comprar">Cómo funciona <span>→</span></a>
+        </div>
+        <div class="hero-proof">
+          <div class="proof-avatars" aria-hidden="true"><span></span><span></span><span></span></div>
+          <p><strong>Skincare elegido con intención.</strong><br>Más de 230 productos disponibles por encargo.</p>
+        </div>
+      </div>
+      <div class="hero-showcase" aria-label="Selección destacada de ROUGE">
+        <div class="showcase-orbit orbit-one"></div>
+        <div class="showcase-orbit orbit-two"></div>
+        <p class="showcase-label">Selección<br>ROUGE <span>01</span></p>
+        <div class="showcase-card card-back"><img src="product-images-hd/092.png" alt="" aria-hidden="true"></div>
+        <div class="showcase-card card-front"><img src="product-images-hd/006.png" alt="Producto destacado de skincare coreano"></div>
+        <p class="showcase-note">Tu rutina<br>empieza acá <span>✦</span></p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="value-strip" aria-label="Beneficios de comprar en ROUGE">
+      <article><span class="value-icon">✦</span><div><h2>Selección curada</h2><p>Marcas que amamos, elegidas una por una.</p></div></article>
+      <article><span class="value-icon">◌</span><div><h2>Por encargo</h2><p>Productos importados para tu rutina.</p></div></article>
+      <article><span class="value-icon">↗</span><div><h2>Atención cercana</h2><p>Te ayudamos a encontrar tu match.</p></div></article>
+    </section>
+
+    <section class="order-notice" aria-label="Información sobre pedidos">
+      <div class="order-notice-icon">✦</div>
+      <div>
+        <p class="order-notice-title">Productos disponibles por encargo</p>
+        <p class="order-notice-text">Nuestros productos son importados y se gestionan exclusivamente por encargo. El plazo de entrega puede extenderse hasta <strong>14 días</strong>, según disponibilidad y tiempos de importación. <strong>El envío es gratis en Avellaneda y zonas cercanas.</strong></p>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Herramientas del catálogo">
+      <div class="search-wrap">
+        <label for="search" class="sr-only">Buscar producto</label>
+        <input id="search" type="search" placeholder="Buscar producto, marca o código..." autocomplete="off">
+        <span class="search-icon">⌕</span>
+      </div>
+
+      <div class="sort-wrap">
+        <label for="sort">Ordenar</label>
+        <select id="sort">
+          <option value="featured">Destacados</option>
+          <option value="name-asc">Nombre A–Z</option>
+          <option value="name-desc">Nombre Z–A</option>
+          <option value="price-asc">Precio menor</option>
+          <option value="price-desc">Precio mayor</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="category-strip" aria-label="Filtrar por marca">
+      <button class="category-chip active" data-category="TODOS">Todos</button>
+      <div id="category-list"></div>
+    </section>
+
+    <section id="catalogo" class="summary-row">
+      <div>
+        <p class="section-kicker">Encontrá tu próximo favorito</p>
+        <h2>El catálogo</h2>
+        <p id="results-count">Cargando productos…</p>
+      </div>
+      <div class="catalog-rule"></div>
+    </section>
+
+    <section id="product-grid" class="product-grid" aria-live="polite"></section>
+
+    <div id="empty-state" class="empty-state hidden">
+      <div class="empty-icon">◌</div>
+      <h3>No encontramos ese producto</h3>
+      <p>Probá con otra palabra, marca o código.</p>
+      <button id="clear-search" class="button-outline">Limpiar búsqueda</button>
+    </div>
+
+    <section id="como-comprar" class="how-to" aria-labelledby="how-to-title">
+      <div class="how-to-intro">
+        <p class="section-kicker">Simple, personal, sin vueltas</p>
+        <h2 id="how-to-title">Tu pedido en tres pasos.</h2>
+        <p>Elegí tus favoritos, enviá la lista por WhatsApp y coordinamos todo con vos.</p>
+      </div>
+      <ol class="steps-list">
+        <li><span>01</span><div><h3>Elegí tu rutina</h3><p>Explorá, filtrá por marca y agregá los productos que querés.</p></div></li>
+        <li><span>02</span><div><h3>Enviá tu pedido</h3><p>Desde el carrito, tu lista se prepara automáticamente para WhatsApp.</p></div></li>
+        <li><span>03</span><div><h3>Confirmamos juntas</h3><p>Con una seña del 40%, gestionamos tu pedido importado.</p></div></li>
+      </ol>
+    </section>
+  </main>
+
+  <button id="floating-cart" class="floating-cart" type="button" aria-label="Abrir mi pedido">
+    <span class="floating-cart-icon">🛍</span>
+    <span>Mi pedido</span>
+    <span id="floating-cart-count" class="cart-count">0</span>
+  </button>
+
+  <div id="cart-drawer" class="drawer hidden" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+    <div class="drawer-backdrop" data-close-cart="true"></div>
+    <aside class="drawer-panel">
+      <div class="drawer-head">
+        <div>
+          <p class="drawer-kicker">ROUGE</p>
+          <h2 id="cart-title">Mi pedido</h2>
+        </div>
+        <button class="modal-close" type="button" aria-label="Cerrar pedido" data-close-cart="true">×</button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <div id="cart-empty" class="cart-empty">
+        <p>Tu pedido está vacío.</p>
+        <button id="cart-continue" class="button-outline" type="button">Seguir viendo productos</button>
+      </div>
+      <div id="cart-summary" class="cart-summary hidden">
+        <div class="cart-total-row"><span>Total</span><strong id="cart-total"></strong></div>
+        <p class="cart-delivery-note">Los productos son importados y se gestionan por encargo. El plazo de entrega puede ser de hasta 14 días. <strong>El envío es gratis en Avellaneda y zonas cercanas.</strong></p>
+        <button id="checkout-open" class="button-primary" type="button">Enviar pedido por WhatsApp</button>
+      </div>
+    </aside>
+  </div>
+
+  <footer id="contacto" class="footer">
+    <div class="footer-inner">
+      <div class="footer-main">
+        <div class="footer-logo">ROUGE</div>
+        <p class="footer-lead">Skincare que transforma tu rutina en un momento para vos.</p>
+        <p class="footer-order">Todos nuestros productos son importados y se ofrecen por encargo. El plazo de entrega puede ser de hasta 14 días. <strong>El envío es gratis en Avellaneda y zonas cercanas.</strong></p>
+      </div>
+      <div class="footer-contact">
+        <h3>Hablemos</h3>
+        <a href="https://www.instagram.com/rouge.essenza/" target="_blank" rel="noopener noreferrer">Instagram · @rouge.essenza</a>
+        <a href="https://wa.me/5491130049720" target="_blank" rel="noopener noreferrer">WhatsApp · +54 9 11 3004-9720</a>
+      </div>
+    </div>
+    <div class="footer-bottom">ROUGE · Gracias por elegirnos.</div>
+  </footer>
+
+  <script src="js/app.js?v=20260930" defer></script>
+</body>
+</html>
